@@ -29,7 +29,7 @@ Stack.prototype.peek = function() {
 };
 
 Stack.prototype.pop = function() {
-  if (this.isEmpty()) throw new Error('Empty Stack');
+  if (this.isEmpty()) return null;
   const res =  this._storage[--this._size];
   delete this._storage[this._size];
   return res;
@@ -41,8 +41,8 @@ Stack.prototype.contains = function(value) {
 };
 
 Stack.prototype.until = function(value) {
-  if (this.isEmpty()) throw new Error('Empty stack');
-  if (!this.contains(value)) throw new Error('This value cannot be found');
+  if (this.isEmpty()) return null;
+  if (!this.contains(value)) return null;
   return this.size() - Object.values(this._storage).lastIndexOf(value);
 };
 
@@ -63,6 +63,42 @@ Stack.prototype._sortedInsert = function(element) {
     this._sortedInsert(element);
     this.push(temp);
   }
+};
+
+Stack.prototype.fromArray = function(arr) {
+  for (const item of arr) {
+    this.push(item);
+  }
+  return this;
+};
+
+Stack.prototype.toString = function() {
+  return Object.values(this._storage).reverse().toString();
+};
+
+Stack.prototype.clone = function() {
+  const cloned = new Stack(this._capacity);
+  for (const elem in this._storage) {
+    cloned.push(this._storage[elem]);
+  }
+  return cloned;
+};
+
+Stack.prototype[Symbol.iterator] = function() {
+  return {
+    cloned: this.clone(),
+    next() {
+      const element = this.cloned.pop();
+      if (!element) return {
+        done: true,
+        value: null
+      };
+      return {
+        done: false,
+        value: element
+      };
+    }
+  };
 };
 
 module.exports = Stack;

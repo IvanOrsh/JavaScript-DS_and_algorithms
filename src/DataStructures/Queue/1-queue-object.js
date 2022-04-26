@@ -33,7 +33,7 @@ Queue.prototype.enqueue = function(value) {
 };
 
 Queue.prototype.dequeue = function() {
-  if (this.size() === 0) throw new Error('Empty Queue');
+  if (this.size() === 0) return null;
 
   const res = this._storage[this._head];
   delete this._storage[this._head];

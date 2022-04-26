@@ -25,6 +25,7 @@ describe('Queue implemented using object', () => {
     const arrOfRandomNumbers = Array.from(
       { length: 100 }, () => Math.floor(Math.random() * 100)
     );
+
     for (const value of arrOfRandomNumbers) {
       queue.enqueue(value);
     }

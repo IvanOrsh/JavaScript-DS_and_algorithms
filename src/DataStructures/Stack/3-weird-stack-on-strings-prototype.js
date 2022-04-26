@@ -36,7 +36,7 @@ WeirdStack.prototype.peek = function() {
 };
 
 WeirdStack.prototype.pop = function() {
-  if (this.isEmpty()) throw new Error('Stack is empty');
+  if (this.isEmpty()) return null;
   if (this._size === 1) {
     const res = this.storage.slice(1);
     this.clear();

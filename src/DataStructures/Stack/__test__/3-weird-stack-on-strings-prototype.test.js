@@ -71,6 +71,6 @@ describe('WeirdStack implemented using strings', () => {
 
     expect(stack.pop()).toBe('2');
     expect(stack.pop()).toBe('1');
-    expect(() => stack.pop()).toThrow('Stack is empty');
+    expect(stack.pop()).toBeNull();
   });
 });

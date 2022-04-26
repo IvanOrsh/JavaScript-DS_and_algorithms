@@ -1,6 +1,6 @@
 'use strict';
 
-const Stack = require('../1-stack-object');
+const Stack = require('../1-stack-object-proto');
 
 describe('Stack implemented using object', () => {
 
@@ -48,7 +48,7 @@ describe('Stack implemented using object', () => {
     expect(stack.size()).toEqual(1);
     expect(stack.pop()).toEqual('example');
     expect(stack.isEmpty()).toBeTruthy();
-    expect(() => stack.pop()).toThrow('Empty Stack');
+    expect(stack.pop()).toBeNull();
   });
 
   it('check if a value is no stack', () => {
@@ -76,7 +76,7 @@ describe('Stack implemented using object', () => {
     stack.push(9);
 
     expect(stack.until(7)).toEqual(4);
-    expect(() => stack.until(100)).toThrow('This value cannot be found');
+    expect(stack.until(100)).toBeNull();
   });
 
   it('should sort stack in ascending order', () => {
@@ -97,5 +97,15 @@ describe('Stack implemented using object', () => {
     for (let i = 0; i < stack.size(); i++) {
       expect(stack.pop()).toEqual(sortedArr[i]);
     }
+  });
+
+  it('should fill a given stack from a given array', () => {
+    const stack = new Stack().fromArray([1, 2, 3, 4, 5]);
+    expect(stack.size()).toEqual(5);
+  });
+
+  it('should return a string representation of a given stack', () => {
+    const stack = new Stack().fromArray([1, 2, 3, 4, 5]);
+    expect(stack.toString()).toBe('5,4,3,2,1');
   });
 });

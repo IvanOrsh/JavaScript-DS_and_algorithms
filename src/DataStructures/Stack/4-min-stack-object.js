@@ -1,6 +1,6 @@
 'use strict';
 
-const Stack = require('./1-stack-object');
+const Stack = require('./1-stack-object-proto');
 
 const MinStack = function(capacity) {
   this._capacity = capacity || Infinity;
@@ -32,7 +32,7 @@ MinStack.prototype.push = function(value) {
 };
 
 MinStack.prototype.pop = function() {
-  if (this.isEmpty()) throw new Error('Empty MinStack');
+  if (this.isEmpty()) return null;
   this._min.pop();
   const res = this._storage[--this._size];
   delete this._storage[this._size];
@@ -45,7 +45,7 @@ MinStack.prototype.peek = function() {
 };
 
 MinStack.prototype.min = function() {
-  if (this.isEmpty()) throw new Error('Empty MinStack');
+  if (this.isEmpty()) return null;
   return this._min.peek();
 };
 

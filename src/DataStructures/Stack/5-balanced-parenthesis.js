@@ -1,6 +1,6 @@
 'use strict';
 
-const Stack = require('./1-stack-object');
+const Stack = require('./1-stack-object-proto');
 
 const idxOpenParen = item => ['(', '[', '{'].indexOf(item);
 const idxClosingParen = item => [')', ']', '}'].indexOf(item);

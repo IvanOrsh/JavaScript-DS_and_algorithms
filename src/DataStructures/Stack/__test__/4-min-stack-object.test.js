@@ -25,7 +25,7 @@ describe('MinStack - stack, implemented using object', () => {
 
   it('should pop a value from minStack', () => {
     const minStack = new MinStack();
-    expect(() => minStack.pop()).toThrow('Empty MinStack');
+    expect(minStack.pop()).toBeNull();
 
     expect(minStack.push(1)).toEqual(1);
     expect(minStack.push(2)).toEqual(2);
@@ -34,12 +34,12 @@ describe('MinStack - stack, implemented using object', () => {
     expect(minStack.pop()).toEqual(3);
     expect(minStack.pop()).toEqual(2);
     expect(minStack.pop()).toEqual(1);
-    expect(() => minStack.pop()).toThrow('Empty MinStack');
+    expect(minStack.pop()).toBeNull();
   });
 
   it('should return current min value on minStack', () => {
     const minStack = new MinStack();
-    expect(() => minStack.min()).toThrow('Empty MinStack');
+    expect(minStack.min()).toBeNull();
 
     expect(minStack.push(12)).toEqual(1);
     expect(minStack.min()).toEqual(12);
