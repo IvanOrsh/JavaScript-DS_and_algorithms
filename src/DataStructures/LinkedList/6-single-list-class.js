@@ -10,7 +10,6 @@ class LinkedList {
     this.compare = new Comparator(compareFn);
   }
 
-  // add a node at the start of the linked list
   prepend(value) {
     const newNode = new LinkedListNode(value, this.head);
     this.head = newNode;
@@ -22,7 +21,6 @@ class LinkedList {
     return this;
   }
 
-  // add a node at the end of the linked list
   append(value) {
     const newNode = new LinkedListNode(value);
 

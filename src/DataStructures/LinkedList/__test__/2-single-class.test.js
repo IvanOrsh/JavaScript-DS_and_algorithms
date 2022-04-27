@@ -2,7 +2,7 @@
 
 const LinkedListNode = require('../2-single-class');
 
-describe('LinkedListNode', () => {
+describe('Linked List Node', () => {
   it('should create a node with a given value', () => {
     const node = new LinkedListNode(1);
 

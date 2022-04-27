@@ -2,7 +2,7 @@
 
 const LinkedList = require('../6-single-list-class');
 
-describe('LinkedList', () => {
+describe('Linked List', () => {
   it('should create an empty LinkedList', () => {
     const linkedList = new LinkedList();
 
