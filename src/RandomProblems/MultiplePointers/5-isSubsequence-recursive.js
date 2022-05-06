@@ -1,0 +1,18 @@
+'use strict';
+
+const isSubsequence = (str1, str2) => {
+  if (str1.length === 0) return true;
+  if (str2.length === 0) return false;
+  if (str2[0] === str1[0]) return isSubsequence(str1.slice(1), str2.slice(1));
+  return isSubsequence(str1, str2.slice(1));
+};
+
+// Usage
+
+console.log(
+  isSubsequence('dog', 'doggy'),
+  isSubsequence('doggy', 'dog'),
+  isSubsequence('', ''),
+  isSubsequence('', 'hello'),
+  isSubsequence('what', 'whadda'),
+);
